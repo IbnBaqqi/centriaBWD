@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Page</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js"></script>
+</head>
+<body>
+  <!--
+	Author: Abdulbaki Salaudeen
+	Date: 2025-10-06
+	-->
+  <header class="site-header">
+    <h1>Registration Page</h1>
+  </header>
+  <main class="content">
+    <div class="top-grid">
+      <section class="student-info" aria-label="Registration information">
+        <h2 class="student-info-title">Registration Info</h2>
+        <p>Please provide accurate information in the form below.</p>
+        <p><strong>All fields are required.</strong> Custom validation applies.</p>
+      </section>
+      <section class="controls" aria-label="Registration form">
+        <h2 class="controls-title">Submit Registration</h2>
+        <form id="registrationForm">
+          <input type="hidden" id="timestamp" name="timestamp">
+          <div class="form-row">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" name="fullName" type="text" placeholder="e.g., John Doe">
+            <span class="error" id="errorName"></span>
+            <small></small>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="john@example.com">
+            <span class="error" id="errorEmail"></span>
+            <small></small>
+          </div>
+          <div class="form-row">
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="tel" placeholder="+358 40 123 4567">
+            <span class="error" id="errorPhone"></span>
+            <small></small>
+          </div>
+          <div class="form-row">
+            <label for="birthDate">Birth Date</label>
+            <input id="birthDate" name="birthDate" type="date">
+            <span class="error" id="errorBirth"></span>
+            <small></small>
+          </div>
+          <div class="form-row checkbox-row">
+            <label class="checkbox-label" for="terms">
+              <input id="terms" name="terms" type="checkbox"> I accept the terms and conditions.
+            </label>
+            <span class="error" id="errorTerms"></span>
+          </div>
+          <div class="form-row">
+            <button type="submit" class="btn">Submit</button>
+            <button type="reset" class="btn btn-secondary">Clear</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <!-- Table -->
+    <div class="table-wrap">
+      <table class="table" id="registrationTable">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Birth Date</th>
+            <th>Terms</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
