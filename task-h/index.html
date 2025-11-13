@@ -3,82 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <title>Registration Page</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="index.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="index.js" defer></script>
 </head>
-<body>
-  <!--
-	Author: Abdulbaki Salaudeen
-	Date: 2025-10-06
-	-->
-  <header class="site-header">
-    <h1>Registration Page</h1>
+<body class="bg-slate-100 text-slate-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-blue-900 text-white py-6 text-center shadow">
+    <h1 class="text-2xl font-semibold">Registration Page</h1>
   </header>
-  <main class="content">
-    <div class="top-grid">
-      <section class="student-info" aria-label="Registration information">
-        <h2 class="student-info-title">Registration Info</h2>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-4 md:p-8">
+
+    <!-- Top Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+
+      <!-- Info Box -->
+      <section class="bg-white rounded-lg border border-slate-300 p-5 shadow">
+        <h2 class="text-lg font-semibold mb-2">Registration Info</h2>
         <p>Please provide accurate information in the form below.</p>
-        <p><strong>All fields are required.</strong> Custom validation applies.</p>
+        <p class="mt-2"><strong>All fields are required.</strong> Custom validation applies.</p>
       </section>
-      <section class="controls" aria-label="Registration form">
-        <h2 class="controls-title">Submit Registration</h2>
-        <form id="registrationForm">
+
+      <!-- Form -->
+      <section class="bg-white rounded-lg border border-slate-300 p-5 shadow">
+        <h2 class="text-lg font-semibold mb-4">Submit Registration</h2>
+
+        <form id="registrationForm" class="space-y-4">
+
           <input type="hidden" id="timestamp" name="timestamp">
-          <div class="form-row">
-            <label for="fullName">Full Name</label>
-            <input id="fullName" name="fullName" type="text" placeholder="e.g., John Doe">
-            <span class="error" id="errorName"></span>
-            <small></small>
+
+          <!-- Row: Full Name -->
+          <div>
+            <label for="fullName" class="block font-medium mb-1">Full Name</label>
+            <input id="fullName" name="fullName" type="text"
+                   class="w-full border border-slate-300 rounded p-2"
+                   placeholder="e.g., John Doe">
+            <span id="errorName" class="text-red-600 text-sm"></span>
           </div>
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="john@example.com">
-            <span class="error" id="errorEmail"></span>
-            <small></small>
+
+          <!-- Row: Email -->
+          <div>
+            <label for="email" class="block font-medium mb-1">Email</label>
+            <input id="email" name="email" type="email"
+                   class="w-full border border-slate-300 rounded p-2"
+                   placeholder="john@example.com">
+            <span id="errorEmail" class="text-red-600 text-sm"></span>
           </div>
-          <div class="form-row">
-            <label for="phone">Phone Number</label>
-            <input id="phone" name="phone" type="tel" placeholder="+358 40 123 4567">
-            <span class="error" id="errorPhone"></span>
-            <small></small>
+
+          <!-- Row: Phone -->
+          <div>
+            <label for="phone" class="block font-medium mb-1">Phone Number</label>
+            <input id="phone" name="phone" type="tel"
+                   class="w-full border border-slate-300 rounded p-2"
+                   placeholder="+358 40 123 4567">
+            <span id="errorPhone" class="text-red-600 text-sm"></span>
           </div>
-          <div class="form-row">
-            <label for="birthDate">Birth Date</label>
-            <input id="birthDate" name="birthDate" type="date">
-            <span class="error" id="errorBirth"></span>
-            <small></small>
+
+          <!-- Row: Birth Date -->
+          <div>
+            <label for="birthDate" class="block font-medium mb-1">Birth Date</label>
+            <input id="birthDate" name="birthDate" type="date"
+                   class="w-full border border-slate-300 rounded p-2">
+            <span id="errorBirth" class="text-red-600 text-sm"></span>
           </div>
-          <div class="form-row checkbox-row">
-            <label class="checkbox-label" for="terms">
-              <input id="terms" name="terms" type="checkbox"> I accept the terms and conditions.
-            </label>
-            <span class="error" id="errorTerms"></span>
+
+          <!-- Row: Terms -->
+          <div class="flex items-start gap-2">
+            <input id="terms" name="terms" type="checkbox" class="mt-1">
+            <label for="terms">I accept the terms and conditions.</label>
           </div>
-          <div class="form-row">
-            <button type="submit" class="btn">Submit</button>
-            <button type="reset" class="btn btn-secondary">Clear</button>
+          <span id="errorTerms" class="text-red-600 text-sm block"></span>
+
+          <!-- Buttons -->
+          <div class="flex gap-3 pt-2">
+            <button type="submit"
+                    class="bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-800">
+              Submit
+            </button>
+            <button type="reset"
+                    class="border border-slate-400 px-4 py-2 rounded hover:bg-slate-200">
+              Clear
+            </button>
           </div>
+
         </form>
       </section>
     </div>
+
     <!-- Table -->
-    <div class="table-wrap">
-      <table class="table" id="registrationTable">
+    <div class="bg-white border border-slate-300 rounded-lg p-4 shadow overflow-x-auto">
+      <table id="registrationTable" class="w-full border-collapse">
         <thead>
-          <tr>
-            <th>Timestamp</th>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Birth Date</th>
-            <th>Terms</th>
+          <tr class="bg-blue-900 text-white">
+            <th class="p-3 text-left">Timestamp</th>
+            <th class="p-3 text-left">Full Name</th>
+            <th class="p-3 text-left">Email</th>
+            <th class="p-3 text-left">Phone</th>
+            <th class="p-3 text-left">Birth Date</th>
+            <th class="p-3 text-center">Terms</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="divide-y divide-slate-200">
         </tbody>
       </table>
     </div>
+
   </main>
+
 </body>
 </html>
