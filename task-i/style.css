@@ -1,0 +1,439 @@
+/* --- 1. Variables & Base Styles --- */
+
+:root {
+    /* Colors */
+    --color-primary: #004D40; /* Deep Forest Green */
+    --color-secondary: #FFB300; /* Amber/Deep Gold */
+    --color-accent: #EFEBE9; /* Light Beige/Off-White */
+    --color-text: #212121; /* Dark Grey for body text */
+
+    /* Fonts */
+    --font-heading: 'Lora', serif;
+    --font-body: 'Roboto', sans-serif;
+
+    /* Spacing */
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.6;
+    background-color: var(--color-accent);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    line-height: 1.2;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+/* --- 2. Utility & Component Styles --- */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    font-size: 2.5rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.primary-cta {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: 2px solid var(--color-secondary);
+}
+
+.primary-cta:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+.secondary-cta-link {
+    font-weight: 700;
+    margin-left: var(--space-md);
+}
+
+/* --- 3. Header & Navigation --- */
+
+.main-header {
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    padding: var(--space-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* Make it sticky */
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu a {
+    color: var(--color-accent);
+    padding: 0 1rem;
+    font-weight: 400;
+}
+
+.nav-menu a:hover {
+    color: var(--color-secondary);
+}
+
+.hamburger-icon {
+    display: none; /* Hidden on desktop */
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Hide the 'Rent Now' button in the header on small screens */
+.nav-cta {
+    display: none;
+}
+
+/* --- 4. Hero Section --- */
+
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    background-color: #F8F5F2; /* Very light background for contrast */
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+}
+
+.hero-content .tagline {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text);
+}
+
+.hero-image {
+    max-width: 45%;
+    text-align: right;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-ctas .large-cta {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+}
+
+/* --- 5. Sections Styling (Padding) --- */
+
+section {
+    padding: var(--space-lg) 5%;
+}
+
+.about-section {
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    text-align: center;
+    padding: var(--space-lg) 15%;
+}
+
+.about-section h2 {
+    color: var(--color-secondary);
+}
+
+.about-section .about-content p {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+}
+
+.about-section a {
+    color: var(--color-accent);
+}
+
+.about-section a:hover {
+    color: var(--color-secondary);
+}
+
+/* --- 6. Product Highlights (CSS Grid) --- */
+
+.gear-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    gap: var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gear-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.gear-card:hover {
+    transform: translateY(-5px);
+}
+
+.gear-card figure {
+    position: relative;
+    height: 250px; /* Uniform image height */
+    overflow: hidden;
+    margin: 0;
+}
+
+.gear-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gear-card figcaption {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.gear-card h3 {
+    margin: 1rem 0 0.5rem;
+}
+
+.gear-card p {
+    padding: 0 1rem 1.5rem;
+}
+
+/* --- 7. Features/Benefits (Flexbox) --- */
+
+.features-list {
+    display: flex;
+    justify-content: space-around;
+    gap: var(--space-md);
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.feature-item {
+    flex: 1;
+    padding: var(--space-md);
+}
+
+.feature-item .icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.feature-item h3 {
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+}
+
+/* --- 8. Final CTA Banner --- */
+
+.cta-banner {
+    text-align: center;
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    padding: var(--space-lg) 5%;
+}
+
+.cta-banner h2 {
+    color: var(--color-accent);
+    font-size: 2.5rem;
+}
+
+.cta-banner p {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-md);
+}
+
+/* --- 9. Footer --- */
+
+.main-footer {
+    background-color: #1a1a1a;
+    color: #bdbdbd;
+    padding: var(--space-lg) 5% var(--space-sm);
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-accent);
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a, .footer-contact p, .social-media a {
+    color: #bdbdbd;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.footer-links a:hover, .social-media a:hover {
+    color: var(--color-secondary);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: var(--space-sm);
+    border-top: 1px solid #333;
+}
+
+/* --- 10. Media Queries (Responsiveness) --- */
+
+/* Tablet & Smaller Desktop (992px) */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .gear-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+    }
+
+    .features-list {
+        flex-wrap: wrap;
+    }
+    
+    .feature-item {
+        flex: 1 1 45%; /* Allow wrapping */
+    }
+    
+    .footer-content {
+        flex-wrap: wrap;
+    }
+}
+
+/* Mobile Devices (576px) */
+@media (max-width: 576px) {
+    
+    .main-header {
+        padding: 1rem 5%;
+    }
+
+    .nav-menu {
+        display: none; /* Hide standard menu */
+    }
+
+    .hamburger-icon {
+        display: block; /* Show hamburger icon */
+    }
+
+    .nav-cta {
+        display: inline-block; /* Show the CTA button again */
+        padding: 0.5rem 1rem;
+    }
+
+    .hero-section {
+        flex-direction: column; /* Stack hero elements */
+        text-align: center;
+        padding: var(--space-lg) 5%;
+    }
+
+    .hero-content, .hero-image {
+        max-width: 100%;
+        margin-bottom: var(--space-md);
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content .tagline {
+        font-size: 1.2rem;
+    }
+
+    .hero-ctas {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .secondary-cta-link {
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+
+    .gear-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+    }
+
+    .features-list {
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+    
+    .footer-links h4, .footer-contact h4 {
+        margin-top: 0;
+    }
+}
